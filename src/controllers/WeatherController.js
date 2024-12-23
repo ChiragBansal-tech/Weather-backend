@@ -1,7 +1,6 @@
 const WeatherData = require('../models/WeatherData');
 const { fetchWeatherDataFromAPI } = require('../services/weatherService');
 
-// POST /store-weather-data
 const storeWeatherData = async (req, res) => {
   const { latitude, longitude, start_date, end_date } = req.body;
 
@@ -19,7 +18,6 @@ const storeWeatherData = async (req, res) => {
   }
 };
 
-// GET /list-weather-files
 const listWeatherFiles = async (req, res) => {
   try {
     const files = await WeatherData.find({}, '_id location dateRange');
@@ -29,7 +27,6 @@ const listWeatherFiles = async (req, res) => {
   }
 };
 
-// GET /weather-file-content/:id
 const getWeatherFileContent = async (req, res) => {
   const { id } = req.params;
 
